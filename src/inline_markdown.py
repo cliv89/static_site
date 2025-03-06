@@ -99,13 +99,3 @@ def extract_markdown_links(text):
     matches = re.findall(pattern, text)
     return matches
 
-
-def markdown_to_blocks(markdown):
-    markdown_split = markdown.split("\n\n")
-    cleaned_blocks = []
-    for split_line in markdown_split:
-        cleaned_line = split_line.strip()
-        if cleaned_line:
-            cleaned_blocks.append(cleaned_line)
-            
-    return cleaned_blocks

@@ -6,8 +6,9 @@ from inline_markdown import (
     text_to_textnodes,
     extract_markdown_links,
     extract_markdown_images,
-    markdown_to_blocks,
+    
 )
+
 
 from textnode import TextNode, TextType
 
@@ -192,28 +193,7 @@ class TestInlineMarkdown(unittest.TestCase):
             nodes,
         )
 
-    def test_empty_markdown(self):
-        md = ""
-        blocks = markdown_to_blocks(md)
-        self.assertEqual(blocks, [])
-        
-    
-    def test_single_block(self):
-        md = "This is a single block with no blank lines"
-        blocks = markdown_to_blocks(md)
-        self.assertEqual(blocks, ["This is a single block with no blank lines"])
-        
-        
-    def test_multiple_newlines(self):
-        md = "Block 1\n\n\n\nBlock 2"
-        blocks = markdown_to_blocks(md)
-        self.assertEqual(blocks, ["Block 1", "Block 2"])
-        
-    
-    def test_whitespace_blocks(self):
-        md = "Real block\n\n    \n\nAnother block"
-        blocks = markdown_to_blocks(md)
-        self.assertEqual(blocks, ["Real block", "Another block"])
+
 
 
 if __name__ == "__main__":
